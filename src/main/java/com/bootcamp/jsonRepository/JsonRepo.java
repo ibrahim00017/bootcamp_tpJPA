@@ -57,7 +57,7 @@ public class JsonRepo<T> {
         ObjectMapper mapper = new ObjectMapper();
         ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
         try {
-            List<T> list = new ArrayList<T>();
+            List<T> list = getList(object);
             list.add(object);
             writer.writeValue(file, list);
         } catch (IOException ex) {
@@ -119,13 +119,18 @@ public class JsonRepo<T> {
         } catch (IOException ex) {
             Logger.getLogger(JsonRepo.class.getName()).log(Level.SEVERE, null, ex);
         }
-//        JsonFactory jsonFactory = new JsonFactory();
-//        try {
-//            JsonParser jsonParser = jsonFactory.createParser(fileName);
-//        } catch (IOException ex) {
-//            Logger.getLogger(JsonRepo.class.getName()).log(Level.SEVERE, null, ex);
-//        }
         return result;
+    }
+    
+       private List<T> getList(T object){
+        
+      
+        List<T> list;
+
+        File file = new File("src/main/resources/files/"+object.getClass().getSimpleName()+".json");
+        list = this.jsonToObject(file);
+        
+        return list;
     }
     
 }

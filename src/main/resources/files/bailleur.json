@@ -1,7 +1,19 @@
-{
+[ {
   "id" : 8,
-  "nom" : "Barrith Raimi",
-  "typeDeBailleur" : "partenaire_international",
+  "nom" : "ABALDON Raimi",
+  "typeDeBailleur" : null,
   "bailleur_has_programme" : [ ],
   "bailleurHasProjet" : [ ]
-}
+}, {
+  "id" : 9,
+  "nom" : "RAIMI Barriath",
+  "typeDeBailleur" : null,
+  "bailleur_has_programme" : [ ],
+  "bailleurHasProjet" : [ ]
+}, {
+  "id" : 9,
+  "nom" : "RAIMI Barriath",
+  "typeDeBailleur" : null,
+  "bailleur_has_programme" : [ ],
+  "bailleurHasProjet" : [ ]
+} ]
