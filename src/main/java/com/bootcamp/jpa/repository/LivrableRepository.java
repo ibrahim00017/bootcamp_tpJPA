@@ -5,13 +5,14 @@
  */
 package com.bootcamp.jpa.repository;
 
-import com.bootcamp.entity.IndicateurQuantitatif;
-import com.bootcamp.entity.Livrable;
 import java.sql.SQLException;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
+import com.bootcamp.jpa.entities.IndicateurQuantitatif;
+import com.bootcamp.jpa.entities.Livrable;
 
 /**
  *

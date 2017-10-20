@@ -1,14 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.bootcamp.jpa.repository;
-
-/**
- *
- * @author Ibrahim
- */
 
 import java.sql.SQLException;
 import java.util.List;
@@ -17,26 +7,26 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-
+/**
+ * Created by Ibrahim
+ */
 public abstract class BaseRepository<T> {
 
     private EntityManager em;
-    private String unitPersistence="tpJpa";
+    private String unitPersistence;
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory(unitPersistence);
-    
-    public BaseRepository(){
-    em  = emf.createEntityManager();
-        
-    }
 
     public BaseRepository(String unitPersistence) {
         this.unitPersistence = unitPersistence;
-         em  = emf.createEntityManager();
 
+    }
+    
+    public BaseRepository(){
+        
     }
 
     /**
-     * Méthode de création
+     * Methode de création
      *
      * @param obj
      * @return boolean
@@ -44,9 +34,7 @@ public abstract class BaseRepository<T> {
      * @throws EmptyFieldException
      */
     public boolean create(T obj) throws SQLException {
-        em.getTransaction().begin();
         em.persist(obj);
-        em.getTransaction().commit();
         return true;
     }
 
@@ -57,9 +45,7 @@ public abstract class BaseRepository<T> {
      * @return boolean
      */
     public boolean delete(T obj) throws SQLException {
-        em.getTransaction().begin();
         em.remove(obj);
-        em.getTransaction().commit();
         return true;
     }
 
@@ -70,9 +56,7 @@ public abstract class BaseRepository<T> {
      * @return boolean
      */
     public boolean update(T obj) throws SQLException {
-         em.getTransaction().begin();
         em.merge(obj);
-        em.getTransaction().commit();
         return true;
     }
 
@@ -98,7 +82,12 @@ public abstract class BaseRepository<T> {
      */
     public abstract List<T> findAll() throws SQLException;
 
-    
+    public EntityManager getEntityManager() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory(getUnitPersistence());
+        setEm(emf.createEntityManager());
+        return getEm();
+    }
+
     /**
      * @return the em
      */

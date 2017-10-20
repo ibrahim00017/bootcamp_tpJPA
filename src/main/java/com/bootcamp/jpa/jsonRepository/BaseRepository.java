@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.bootcamp.jpa.enums;
+package com.bootcamp.jpa.jsonRepository;
 
 /**
  *
- * @author Iso-Doss
+ * @author Ibrahim
  */
-public enum TypeDeBailleur {
-    non_gouvernementale,
-    prive,
-    gouvernementale,
-    partenaire_international;
+public class BaseRepository {
+    
 }
